@@ -29,6 +29,7 @@ services:
             - selenium
     mysql:
         image: 'mysql/mysql-server:8.0'
+        platform: linux/x86_64
         ports:
             - '${FORWARD_DB_PORT:-3306}:3306'
         environment:
@@ -51,6 +52,19 @@ services:
                 - '-p${DB_PASSWORD}'
             retries: 3
             timeout: 5s
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        platform: linux/x86_64
+        links:
+            - mysql:mysql
+        ports:
+            - 8888:80
+        environment:
+            MYSQL_USERNAME: '${DB_USERNAME}'
+            MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
+            PMA_HOST: mysql
+        networks:
+            - sail
     redis:
         image: 'redis:alpine'
         ports:
