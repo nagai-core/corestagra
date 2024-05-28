@@ -10,4 +10,8 @@ class UserController extends Controller
     public function index(){
         return view('signUp.index');
     }
+
+    public function show(Request $request){
+        return view('signUp.confirm',compact('request'));
+    }
 }

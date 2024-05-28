@@ -9,17 +9,15 @@
 <body>
     <ul>
         <li>
-            ニックネーム：
-            <p>{{$request->name}}</p>
+            <p>ニックネーム：{{$request->name}}</p>
         </li>
         <li>
-            ニックネーム：
-            <p>{{$request->email}}</p>
+            <p>メアド：{{$request->email}}</p>
         </li>
         <li>
-            ニックネーム：
-            <p>{{$request->password}}</p>
+            <p>パスワード：プライバシー保護により非表示</p>
         </li>
     </ul>
+    <form action="complete"></form>
     </body>
 </html>

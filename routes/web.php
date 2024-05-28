@@ -12,3 +12,4 @@ Route::get('/test', function () {
 });
 
 Route::get("/signUp", [UserController::class, 'index']);
+Route::post("/confirm", [UserController::class, 'show']);
