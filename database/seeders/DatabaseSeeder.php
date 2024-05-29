@@ -23,5 +23,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             users::class
         ]);
+
+        \App\Models\Image::factory(20)->create();
     }
 }
