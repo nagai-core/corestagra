@@ -8,9 +8,7 @@
 </head>
 <body>
     @foreach ($images as $image)
-    <a href="{{route('')}}">
         <img src="{{$image->url}}" alt="" width="200px">
-    </a>
     @endforeach
     <form action="/upload" method="POST" enctype="multipart/form-data">
         <div>
