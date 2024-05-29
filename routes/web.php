@@ -12,4 +12,4 @@ Route::get('/test', function () {
 });
 
 Route::get("/signUp", [UserController::class, 'index']);
-Route::get("/login",function(){return view("login.login");});
+
