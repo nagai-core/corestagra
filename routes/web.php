@@ -11,4 +11,9 @@ Route::get('/test', function () {
     return view('welcomeeeeee');
 });
 
-Route::get("/signUp", [UserController::class, 'index']);
+Route::get("/signUp", [UserController::class, 'index'])->name('signUp.index');
+Route::post("/confirm", [UserController::class, 'show'])->name('signUp.create');
+Route::post("/complete", [UserController::class, 'store'])->name('signUp.store');
+Route::get('/complete', function(){
+    return view('signUp.complete');
+});
