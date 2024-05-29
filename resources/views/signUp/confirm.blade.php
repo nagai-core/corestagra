@@ -18,6 +18,17 @@
             <p>パスワード：プライバシー保護により非表示</p>
         </li>
     </ul>
-    <form action="complete"></form>
+    <form action="{{route('signUp.store')}}" method="POST">
+    <input type="hidden" name="name" value="{{$request->name}}">
+    <input type="hidden" name="email" value="{{$request->email}}">
+    <input type="hidden" name="password" value="{{$request->password}}">
+        <div>
+            {{-- 省略--}}
+            <button class="btn btn-primary" type="submit">
+            登録 <i class="fa-solid fa-caret-right"></i>
+            </button>
+            </div>
+            @csrf
+    </form>
     </body>
 </html>

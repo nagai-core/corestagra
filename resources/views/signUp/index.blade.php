@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>会員登録画面</h1>
-    <form action="/confirm" method="POST">
+    <form action="{{route('signUp.create')}}" method="POST">
         <div>
             <label>
                 ニックネーム
