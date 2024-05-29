@@ -25,5 +25,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         \App\Models\Image::factory(20)->create();
+        \App\Models\Comment::factory(20)->create();
     }
 }

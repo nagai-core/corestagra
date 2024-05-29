@@ -14,13 +14,17 @@ return new class extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->id(); // 自動的に unsigned big integer の primary key として 'id' を作成します
             $table->longText('comment'); // 長いテキストを格納する 'comment' カラムを作成します
-            $table->unsignedBigInteger('user_id'); // 外部キー 'user_id' を作成します
-            $table->unsignedBigInteger('images_id'); // 外部キー 'images_id' を作成します
+            $table->foreignId('user_id')
+            ->constrained('users'); // 外部キー 'user_id' を作成します
+            $table->foreignId('images_id')
+            ->constrained('images'); // 外部キー 'images_id' を作成します
+            $table->integer('delete_flg')
+            ->default(0);
             $table->timestamps(); // 'created_at' と 'updated_at' タイムスタンプカラムを作成します
 
             // 外部キー制約を追加します
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('images_id')->references('id')->on('images')->onDelete('cascade');
+            // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            // $table->foreign('images_id')->references('id')->on('images')->onDelete('cascade');
         });
     }
 
