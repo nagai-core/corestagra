@@ -10,8 +10,11 @@ class CommentController extends Controller
 {
     public function edit($id) {
         $comment = Comment::where('id', $id)
-        ->select("comment")
+        ->select("comment", "user_id", "delete_flg")
         ->first();
+        if($comment->user_id != Auth::id() || $comment->delete_flg === 1) {
+            return redirect()->route("index");
+        }
         return view('comment.edit.index', compact('comment', 'id'));
     }
 
