@@ -1,11 +1,9 @@
 <?php
 
+use App\Http\Controllers\ImageController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [ImageController::class, 'index'])->name('index');
 
-Route::get('/test', function () {
-    return view('welcomeeeeee');
-});
+Route::post('/upload', [ImageController::class, 'upload'])->name('upload');
+
