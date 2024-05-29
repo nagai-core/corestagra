@@ -20,7 +20,8 @@ return new class extends Migration
 
             // 外部キー制約を追加します
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('images_id')->references('id')->on('images')->onDelete('cascade');        });
+            $table->foreign('images_id')->references('id')->on('images')->onDelete('cascade');
+        });
     }
 
     /**
