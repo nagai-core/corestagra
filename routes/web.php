@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\DetailController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
@@ -36,5 +37,9 @@ Route::middleware('auth')->group(function () {
 });
 //Route::get('/test1', [CommentController::class, 'test']);
 
+Route::middleware('auth')->group(function () {
+Route::get('/detail/{id}', [DetailController::class, 'show'])->name('detail.show');
+Route::post("/detail/{id}", [DetailController::class, 'store'])->name('detail.add');
+});
 
 require __DIR__.'/auth.php';

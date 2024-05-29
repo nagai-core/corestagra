@@ -10,7 +10,7 @@ class Image extends Model
     use HasFactory;
     public function users(){
         return $this->belongsToMany(User::class, 'comments','images_id','user_id')
-        ->withPivot('comment','delete_flg');
+        ->withPivot('id','comment','delete_flg');
     }
 
 }
