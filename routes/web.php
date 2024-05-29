@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DetailController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -17,3 +18,6 @@ Route::post("/complete", [UserController::class, 'store'])->name('signUp.store')
 Route::get('/complete', function(){
     return view('signUp.complete');
 });
+
+Route::get("/detail", [DetailController::class, 'show'])->name('detail.show');
+Route::post("/detail", [DetailController::class, 'store'])->name('detail.add');
