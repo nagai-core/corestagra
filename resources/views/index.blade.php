@@ -10,7 +10,7 @@
     @foreach ($images as $image)
         <img src="{{$image->url}}" alt="" width="200px">
     @endforeach
-    <form action="/upload" method="POST" enctype="multipart/form-data">
+    <form action="{{route('upload')}}" method="POST" enctype="multipart/form-data">
         <div>
             <label for="image">
                 <p>アップロード画像</p>
