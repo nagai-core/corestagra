@@ -10,7 +10,7 @@ li {
     border-radius: 10px;
     box-shadow: 0px -1px 17px 5px #e6e6e5;
     width: 50%;
-    margin: 40px auto;
+    margin: 20px auto;
     .post {
         display: flex;
         flex-direction: column;
@@ -78,49 +78,46 @@ li {
         }
     }
 }
-
-// .form {
-    form {
-        position: fixed;
-        z-index: 100;
-        width: 60%;
-        height: 50%;
-        top: 0;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-        width: 80%;
-        height: 60%;
-        margin: 200px auto;
-        padding: 30px;
-        background-color: rgb(255, 255, 255);
-        border-radius: 10px;
-        .position {
-            height: 100%;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            textarea {
-                resize: none;
-                width: 60%;
-                height: 50%;
-            }
-            button {
-                margin-top: 20px;
-                background-color: rgb(124, 203, 170);
-                color: rgb(240, 235, 235);
-                width: 30%;
-                height: 40px;
-                border: none;
-                border-radius: 5px;
-                font-size: 14px;
-                font-weight: 600;
-            }
+form {
+    position: fixed;
+    z-index: 100;
+    width: 60%;
+    height: 50%;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 80%;
+    height: 60%;
+    margin: 200px auto;
+    padding: 30px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    .position {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        textarea {
+            resize: none;
+            width: 60%;
+            height: 50%;
+        }
+        button {
+            margin-top: 20px;
+            background-color: rgb(124, 203, 170);
+            color: rgb(240, 235, 235);
+            width: 30%;
+            height: 40px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 600;
         }
     }
-// }
+}
 .wrapper {
     position: fixed;
     width: 100%;
@@ -139,4 +136,20 @@ li {
     background-color: rgb(124, 203, 170);
     padding: 30px;
     border-radius: 50% 50%;
+}
+.back {
+    width: 40%;
+    margin: 0 auto;
+    background-color: rgb(124, 203, 170);
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    a {
+        display: block;
+        color: rgb(252, 251, 251);
+        border: none;
+        font-size: 14px;
+        font-weight:600;
+        text-decoration:none;
+    }
 }

@@ -12,7 +12,7 @@ li {
   border-radius: 10px;
   box-shadow: 0px -1px 17px 5px #e6e6e5;
   width: 50%;
-  margin: 40px auto;
+  margin: 20px auto;
 }
 .detail .post {
   display: flex;
@@ -141,4 +141,21 @@ form .position button {
   background-color: rgb(124, 203, 170);
   padding: 30px;
   border-radius: 50% 50%;
+}
+
+.back {
+  width: 40%;
+  margin: 0 auto;
+  background-color: rgb(124, 203, 170);
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+.back a {
+  display: block;
+  color: rgb(252, 251, 251);
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
 }/*# sourceMappingURL=detailShow.css.map */

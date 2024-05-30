@@ -12,6 +12,7 @@ class DetailController extends Controller
     public function show($id){
         $image = Image::find($id);
         $userId = Auth::id();
+        // dd($userId);
         // foreach($image->users as $user){
 
         // }

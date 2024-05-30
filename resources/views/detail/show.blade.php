@@ -18,6 +18,7 @@
     </div>
     <div class="comment">
         @foreach($image->users as $user)
+        @if($user->pivot->delete_flg == 0)
         <div class='arrow_box'>
             <p>{{$user->name}}</p>
             <p>{{$user->pivot->comment}}</p>
@@ -29,9 +30,11 @@
             </p>
             @endif
         </div>
+        @endif
         @endforeach
     </div>
 </div>
+<p class="back"><a href="{{route('index')}}">一覧に戻る</a></p>
 <form action="/detail/{{$image->id}}" method="POST" id="modal">
     <div class="position">
         <h2>コメント追加</h2>
@@ -43,19 +46,19 @@
     @csrf
 </form>
 <div class="wrapper" id="wrapper" onclick="mclose()"></div>
-    <script>
-        let modal = document.querySelector("#modal");
-        let modal2 = document.querySelector("#wrapper");
+<script>
+    let modal = document.querySelector("#modal");
+    let modal2 = document.querySelector("#wrapper");
+    modal.style.display = "none";
+    modal2.style.display = "none";
+    function add() {
+        modal.style.display = "block";
+        modal2.style.display = "block";
+    }
+    function mclose() {
         modal.style.display = "none";
         modal2.style.display = "none";
-        function add() {
-            modal.style.display = "block";
-            modal2.style.display = "block";
-        }
-        function mclose() {
-            modal.style.display = "none";
-            modal2.style.display = "none";
-        }
-    </script>
+    }
+</script>
 </body>
 </html>
