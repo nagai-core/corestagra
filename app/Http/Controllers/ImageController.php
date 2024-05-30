@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class ImageController extends Controller
 {
     public function index() {
-        $images = Image::select("id", "url", "favorite")
+        $images = Image::select("id", "url", "favorite", "comment")
         ->get();
         return view('index', compact('images'));
     }
@@ -18,7 +19,6 @@ class ImageController extends Controller
         $request->validate([
             'image' => ['required', 'mimes:jpg,jpeg,png,gif,webp']
         ]);
-        $images = Image::select("id", "url", "favorite");
         $new_images = new Image();
         $userId = Auth::id();
         $path = $request->image->store('images', 'public');
@@ -28,7 +28,7 @@ class ImageController extends Controller
         $new_images->user_id =$userId;
         $new_images->save();
         //dd($path);
-        return view('index', compact('images'));
+        return redirect()->route('index');
     }
 
 }
