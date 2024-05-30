@@ -20,9 +20,7 @@ class ProfileController extends Controller
             'user' => $request->user(),
         ]);
     }
-    public function index(){
-        return view("/login");
-    }
+
     /**
      * Update the user's profile information.
      */
