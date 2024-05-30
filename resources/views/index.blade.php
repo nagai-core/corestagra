@@ -14,10 +14,7 @@
 <input type="text" name="keyword" value="{{ old("keyword") }}">
 <input type="submit" value="検索">
 </form>
-
-    @foreach ($searches as $search)
-        <img src="{{$search->url}}" alt="" width="200px">
-    @endforeach
+@if(!isset($searches))
     <form action="/upload" method="POST" enctype="multipart/form-data">
         @csrf
     @foreach ($images as $image)
@@ -30,6 +27,18 @@
         </li>
     </ul>
     @endforeach
+@else
+    @foreach ($searches as $search)
+    <ul>
+        <li>
+            <a href="/detail/{{$search->id}}"><img src="{{$search->url}}" alt="" width="200px"></a>
+        </li>
+        <li>
+            <p>コメント：{{$search->comment}}</p>
+        </li>
+    </ul>
+    @endforeach
+@endif
     <form action="{{route('upload')}}" method="POST" enctype="multipart/form-data">
         <div>
             <label for="image">
