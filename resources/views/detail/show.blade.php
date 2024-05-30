@@ -19,12 +19,14 @@
         </li>
         <li>
             <p>コメント：{{$user->pivot->comment}}</p>
-            <a href="/detail/{{$user->pivot->id}}/edit/{{$image->pivot->id}}">編集</a>
+            @if ($userId == $user->pivot->user_id)
+            <a href="/detail/{{$image->id}}/edit/{{$user->pivot->id}}">編集</a>
+            @endif
         </li>
         @endforeach
     </div>
 </ul>
-<p>ユーザー：{{$userId}}</p>
+<p>ユーザーID:{{$userId}}</p>
     <p>画像ID：{{$image->id}}</p>
 
 <form action="/detail/{{$image->id}}" method="POST">
