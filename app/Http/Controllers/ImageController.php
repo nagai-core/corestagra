@@ -22,12 +22,13 @@ class ImageController extends Controller
         return view('index');
     }
     public function search(Request $request){
-        $keyword = $request->input("keyword");
-        $query = Image::query();
-       if (!empty($keyword)){
-        $query->where("comment","LIKE","%{$keyword}%");
-       $images = $query->get();
-       return view("images.index",compact("images","keyword"));
-    }
+
+       if (!empty($request->keyword)){
+      $images=Image::where("comment","LIKE","%{$request->keyword}%")->get();
+       }else{
+        $images = Image::select("id", "url", "favorite")
+        ->get();
+       }return view("index",compact("images"));
+
     }
 }

@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string("comment")
                 ->nullable()
                 ->default(null);
-            $table->string("keyword");
             $table->integer("favorite");
             $table->foreignId("user_id")
                 ->constrained('users');

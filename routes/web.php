@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ImageController::class, 'index'])->name('images.index');
 Route::post('/upload', [ImageController::class, 'upload'])->name('images.upload');
-Route::post('/search', [ImageController::class, 'search'])->name('images.search');
+Route::get('/search', [ImageController::class, 'search'])->name('images.search');
 Route::get('/test', function () {
     return view('welcomeeeeee');
 });
