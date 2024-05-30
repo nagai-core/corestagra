@@ -8,7 +8,14 @@
 </head>
 <body>
     @foreach ($images as $image)
-        <img src="{{$image->url}}" alt="" width="200px">
+    <ul>
+        <li>
+            <a href="/detail/{{$image->id}}"><img src="{{$image->url}}" alt="" width="200px"></a>
+        </li>
+        <li>
+            <p>コメント：{{$image->comment}}</p>
+        </li>
+    </ul>
     @endforeach
     <form action="{{route('upload')}}" method="POST" enctype="multipart/form-data">
         <div>

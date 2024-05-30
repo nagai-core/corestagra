@@ -8,10 +8,12 @@
 </head>
 <body>
 <h1>画面詳細</h1>
+<div>
+    <img src="../{{$image->url}}" alt="" width="400px">
+    <p>{{$image->comment}}</p>
+
+</div>
 <ul>
-    <li>
-        <img src="{{$image->url}}" alt="">
-    </li>
     <div>
         @foreach($image->users as $user)
         <li>
@@ -26,9 +28,6 @@
         @endforeach
     </div>
 </ul>
-<p>ユーザーID:{{$userId}}</p>
-    <p>画像ID：{{$image->id}}</p>
-
 <form action="/detail/{{$image->id}}" method="POST">
     <div>
         <input type="hidden" name="user_id" id="user_id" value="{{$userId}}">
