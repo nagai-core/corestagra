@@ -13,7 +13,7 @@ class User extends Authenticatable
 
     public function images(){
         return $this->belongsToMany(Image::class, 'comments','user_id','images_id')
-        ->withPivot('comment','delete_flg');
+        ->withPivot('id','comment','delete_flg');
     }
 
     /**

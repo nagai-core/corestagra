@@ -13,7 +13,7 @@ class CommentController extends Controller
         ->select("comment", "user_id", "delete_flg")
         ->first();
         if($comment->user_id != Auth::id() || $comment->delete_flg === 1) {
-            return redirect()->route("index");
+            return redirect()->route("detail.show", ['id' => $imageId]);
         }
         return view('comment.edit.index', compact('comment', 'imageId', 'commentId'));
     }
@@ -22,17 +22,17 @@ class CommentController extends Controller
         $validated = $request->validate([
             "comment" => ["required"]
         ]);
-        $newComment = Comment::find($imageId);
+        $newComment = Comment::find($commentId);
         $newComment->comment = $request->comment;
         $newComment->save();
-        return redirect()->route("index");
+        return redirect()->route("detail.show", ['id' => $imageId]);
     }
 
     public function destroy($imageId, $commentId) {
         $newComment = Comment::find($commentId);
         $newComment->delete_flg = 1;
         $newComment->save();
-        return redirect()->route("index");
+        return redirect()->route("detail.show", ['id' => $imageId]);
     }
 
 }
