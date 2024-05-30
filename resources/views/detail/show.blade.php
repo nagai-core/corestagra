@@ -19,7 +19,7 @@
         </li>
         <li>
             <p>コメント：{{$user->pivot->comment}}</p>
-            <a href="/detail/{{$user->pivot->id}}/edit">編集</a>
+            <a href="/detail/{{$user->pivot->id}}/edit/{{$image->pivot->id}}">編集</a>
         </li>
         @endforeach
     </div>
