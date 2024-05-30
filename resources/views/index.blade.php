@@ -15,8 +15,8 @@
 <input type="submit" value="検索">
 </form>
 
-    @foreach ($images as $image)
-        <img src="{{$image->url}}" alt="" width="200px">
+    @foreach ($searches as $search)
+        <img src="{{$search->url}}" alt="" width="200px">
     @endforeach
     <form action="/upload" method="POST" enctype="multipart/form-data">
         @csrf
