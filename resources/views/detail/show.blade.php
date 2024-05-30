@@ -44,5 +44,6 @@
     {{-- GET メソッド以外でリクエストする場合は、@csrfを含める --}}
     @csrf
 </form>
+<a href="{{route('index')}}">一覧に戻る</a>
 </body>
 </html>
