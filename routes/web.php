@@ -33,9 +33,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('/detail/{id}/edit', [CommentController::class, 'edit'])->name('commentEdit.edit');
-    Route::post('/detail/{id}/edit', [CommentController::class, 'update'])->name('commentEdit.update');
-    Route::delete('/detail/{id}/edit', [CommentController::class, 'destroy'])->name('commentEdit.destroy');
+    Route::get('/detail/{imageId}/edit/{commentId}', [CommentController::class, 'edit'])->name('commentEdit.edit');
+    Route::post('/detail/{imageId}/edit/{commentId}', [CommentController::class, 'update'])->name('commentEdit.update');
+    Route::delete('/detail/{imageId}/edit/{commentId}', [CommentController::class, 'destroy'])->name('commentEdit.destroy');
 });
 
 require __DIR__.'/auth.php';
