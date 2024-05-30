@@ -16,6 +16,7 @@
 <ul>
     <div>
         @foreach($image->users as $user)
+        @if($user->pivot->delete_flg == 0)
         <li>
             <p>名前：{{$user->name}}</p>
         </li>
@@ -25,6 +26,7 @@
             <a href="/detail/{{$image->id}}/edit/{{$user->pivot->id}}">編集</a>
             @endif
         </li>
+        @endif
         @endforeach
     </div>
 </ul>
