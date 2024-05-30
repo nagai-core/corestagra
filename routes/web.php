@@ -1,5 +1,4 @@
 <?php
-
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\ImageController;
@@ -7,6 +6,12 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/', [ImageController::class, 'index'])->name('images.index');
+Route::post('/upload', [ImageController::class, 'upload'])->name('images.upload');
+Route::get('/search', [ImageController::class, 'search'])->name('images.search');
+Route::get('/test', function () {
+    return view('welcomeeeeee');
+});
 Route::get('/', [ImageController::class, 'index'])->name('index');
 Route::post('/', [ImageController::class, 'upload'])->name('upload');
 

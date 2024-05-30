@@ -7,6 +7,19 @@
     <title>home</title>
 </head>
 <body>
+
+<h2>検索</h2>
+<form action="{{route("images.search")}}" method="get">
+@csrf
+<input type="text" name="keyword" value="{{ old("keyword") }}">
+<input type="submit" value="検索">
+</form>
+
+    @foreach ($searches as $search)
+        <img src="{{$search->url}}" alt="" width="200px">
+    @endforeach
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        @csrf
     @foreach ($images as $image)
     <ul>
         <li>
@@ -29,7 +42,6 @@
             </label>
         </div>
         <button type="submit">送信</button>
-        @csrf
     </form>
 </body>
 </html>
