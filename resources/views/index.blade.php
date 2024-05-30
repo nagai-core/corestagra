@@ -7,6 +7,14 @@
     <title>home</title>
 </head>
 <body>
+
+<h2>検索</h2>
+<form action="{{route("images.index")}}" method="get">
+@csrf
+<input type="text" name="keyword" value="{{ old("search") }}">
+<input type="submit" value="検索">
+</form>
+
     @foreach ($images as $image)
         <img src="{{$image->url}}" alt="" width="200px">
     @endforeach
