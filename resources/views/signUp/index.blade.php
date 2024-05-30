@@ -27,12 +27,12 @@
                 <input type="password" name="password" value="{{ old('password') }}">
             </label>
         </div>
-        <div>
+        {{-- <div>
             <label>
                 アイコン
-                <input type="file" name="image" accept="imsge/jpef, image/png" value="">
+                <input type="file" name="icon" accept="image/jpef, image/png" value="">
             </label>
-        </div>
+        </div> --}}
         <div>
             <input type="submit" name="submit" value="登録">
         </div>

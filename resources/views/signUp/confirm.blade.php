@@ -22,13 +22,15 @@
     <input type="hidden" name="name" value="{{$request->name}}">
     <input type="hidden" name="email" value="{{$request->email}}">
     <input type="hidden" name="password" value="{{$request->password}}">
-        <div>
-            {{-- 省略--}}
-            <button class="btn btn-primary" type="submit">
-            登録 <i class="fa-solid fa-caret-right"></i>
-            </button>
-            </div>
-            @csrf
+    <input type="hidden" name="icon_url" value="{{$request->icon}}">
+    <img src="{{$request->icon}}" alt="" width="100px">
+    <div>
+        {{-- 省略--}}
+        <button class="btn btn-primary" type="submit">
+        登録 <i class="fa-solid fa-caret-right"></i>
+        </button>
+        </div>
+    @csrf
     </form>
     </body>
 </html>
