@@ -7,6 +7,9 @@
     <title>会員登録</title>
 </head>
 <body>
+    @foreach ($errors->all() as $key => $error)
+    <li> <span class="error">{{ $error }}</span></li>
+    @endforeach
     <h1>会員登録画面</h1>
     <form action="{{route('signUp.create')}}" method="POST">
         <div>
@@ -24,7 +27,7 @@
         <div>
             <label>
                 パスワード
-                <input type="password" name="password" value="{{ old('password') }}">
+                <input type="password" name="password">
             </label>
         </div>
         {{-- <div>

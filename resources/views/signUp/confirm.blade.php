@@ -15,7 +15,7 @@
             <p>メアド：{{$request->email}}</p>
         </li>
         <li>
-            <p>パスワード：プライバシー保護により非表示</p>
+            <p>パスワード：{{$dummy}}</p>
         </li>
     </ul>
     <form action="{{route('signUp.store')}}" method="POST">
@@ -32,5 +32,6 @@
         </div>
     @csrf
     </form>
+    <button type="button" onClick="history.back()">戻る</button>
     </body>
 </html>
