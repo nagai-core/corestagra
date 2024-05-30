@@ -12,6 +12,8 @@ Route::get('/search', [ImageController::class, 'search'])->name('images.search')
 Route::get('/test', function () {
     return view('welcomeeeeee');
 });
+Route::get('/', [ImageController::class, 'index'])->name('index');
+Route::post('/', [ImageController::class, 'upload'])->name('upload');
 
 Route::get("/signUp", [UserController::class, 'index'])->name('signUp.index');
 Route::post("/confirm", [UserController::class, 'show'])->name('signUp.create');

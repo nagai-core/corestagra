@@ -8,10 +8,12 @@
 </head>
 <body>
 <h1>画面詳細</h1>
+<div>
+    <img src="../{{$image->url}}" alt="" width="400px">
+    <p>{{$image->comment}}</p>
+
+</div>
 <ul>
-    <li>
-        <img src="{{$image->url}}" alt="">
-    </li>
     <div>
         @foreach($image->users as $user)
         <li>
@@ -19,14 +21,13 @@
         </li>
         <li>
             <p>コメント：{{$user->pivot->comment}}</p>
-            <a href="/detail/{{$user->pivot->id}}/edit/{{$image->pivot->id}}">編集</a>
+            @if ($userId == $user->pivot->user_id)
+            <a href="/detail/{{$image->id}}/edit/{{$user->pivot->id}}">編集</a>
+            @endif
         </li>
         @endforeach
     </div>
 </ul>
-<p>ユーザー：{{$userId}}</p>
-    <p>画像ID：{{$image->id}}</p>
-
 <form action="/detail/{{$image->id}}" method="POST">
     <div>
         <input type="hidden" name="user_id" id="user_id" value="{{$userId}}">

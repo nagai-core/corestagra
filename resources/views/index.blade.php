@@ -20,6 +20,17 @@
     @endforeach
     <form action="/upload" method="POST" enctype="multipart/form-data">
         @csrf
+    @foreach ($images as $image)
+    <ul>
+        <li>
+            <a href="/detail/{{$image->id}}"><img src="{{$image->url}}" alt="" width="200px"></a>
+        </li>
+        <li>
+            <p>コメント：{{$image->comment}}</p>
+        </li>
+    </ul>
+    @endforeach
+    <form action="{{route('upload')}}" method="POST" enctype="multipart/form-data">
         <div>
             <label for="image">
                 <p>アップロード画像</p>
