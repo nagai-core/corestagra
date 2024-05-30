@@ -32,34 +32,17 @@
         @endforeach
     </div>
 </div>
-{{-- <div class="form" id="modal"> --}}
-    <form action="/detail/{{$image->id}}" method="POST" id="modal">
-        <div class="position">
-            <h2>コメント追加</h2>
-            <input type="hidden" name="user_id" id="user_id" value="{{$userId}}">
-            <input type="hidden" name="images_id" id="images_id" value="{{$image->id}}">
-            <textarea name="comment" id="comment" ></textarea>
-            <button type="submit">投稿</button>
-        </div>
-        @csrf
-    </form>
-{{-- </div> --}}
+<form action="/detail/{{$image->id}}" method="POST" id="modal">
+    <div class="position">
+        <h2>コメント追加</h2>
+        <input type="hidden" name="user_id" id="user_id" value="{{$userId}}">
+        <input type="hidden" name="images_id" id="images_id" value="{{$image->id}}">
+        <textarea name="comment" id="comment" ></textarea>
+        <button type="submit">投稿</button>
+    </div>
+    @csrf
+</form>
 <div class="wrapper" id="wrapper" onclick="mclose()"></div>
-{{-- <ul>
-            <div>
-                @foreach($image->users as $user)
-                <li>
-                    <p>{{$user->name}}</p>
-                </li>
-                <li>
-                    <p>{{$user->pivot->comment}}</p>
-                    @if ($userId == $user->pivot->user_id)
-                    <a href="/detail/{{$image->id}}/edit/{{$user->pivot->id}}">編集</a>
-                    @endif
-                </li>
-                @endforeach
-            </div>
-        </ul> --}}
     <script>
         let modal = document.querySelector("#modal");
         let modal2 = document.querySelector("#wrapper");
