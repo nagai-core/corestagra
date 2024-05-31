@@ -14,7 +14,7 @@
     @if ($userId == $image->user_id)
     <form action="{{route('detail.delete',$image->id)}}" method="POST">
         <input type="hidden" name="image_id" id="image_id" value="{{$image->id}}">
-        <input type="submit" value="削除" onclick='return confirm("本当に削除しますか？")'>
+        <button onclick='return confirm("本当に削除しますか？")'>削除</button>
         @csrf
         @method('DELETE')
     </form>
