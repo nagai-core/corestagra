@@ -10,12 +10,19 @@ use Illuminate\Support\Facades\Redirect;
 class ImageController extends Controller
 {
     public function index() {
+        $id = 0;
+        $user = null;
+        $id = Auth::id();
+        if($id) {
+            $user = Auth::user()->name;
+        }
+        // dd($user);
         $images = Image::select("id", "url", "favorite", "comment")
         ->get();
         $query=Image::query();
         $query->orderBy('created_at', 'desc');
         $images = $query->get();
-        return view('index', compact('images'));
+        return view('index', compact('images', 'id', 'user'));
     }
 
     public function upload(Request $request) {
@@ -23,17 +30,31 @@ class ImageController extends Controller
             'image' => ['required', 'mimes:jpg,jpeg,png,gif,webp']
         ]);
         $new_images = new Image();
-        $userId = Auth::id();
+        $id = Auth::id();
         $path = $request->image->store('images', 'public');
         $new_images->url = $path;
         $new_images->comment = $request->comment;
         $new_images->favorite = 0;
-        $new_images->user_id =$userId;
+        $new_images->user_id =$id;
         $new_images->save();
-        return redirect()->route('index');
+
+        $user = Auth::user()->name;
+        $images = Image::select("id", "url", "favorite", "comment")
+        ->get();
+        $query=Image::query();
+        $query->orderBy('created_at', 'desc');
+        $images = $query->get();
+        // return redirect()->route('index');
+        return view('index', compact('images', 'id', 'user'));
     }
 
     public function search(Request $request){
+        $id = 0;
+        $user = null;
+        $id = Auth::id();
+        if($id) {
+            $user = Auth::user()->name;
+        }
         $keys = explode(" ",$request->keyword);
         $i=0;
         $query=Image::query();
@@ -50,7 +71,7 @@ class ImageController extends Controller
         }
         $searches = $query->get();
 
-        return view("index",compact("searches","images"));
+        return view("index",compact("searches","images", "id", 'user'));
     }
 
     // public function sort(Request $request){

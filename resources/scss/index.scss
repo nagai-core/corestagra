@@ -1,0 +1,184 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+li {
+    list-style: none;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(215, 213, 213, 0.482);
+    form {
+        width: 50%;
+        height: 60%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: 20px;
+        input {
+            width: 80%;
+            height: 95%;
+            font-size: 15px;
+            border-radius: 5px 0 0 5px;
+            padding-left: 15px;
+            border: none;
+        }
+        button {
+            height: 100%;
+            background-color: rgb(124, 203, 170);
+            color: rgb(240, 235, 235);
+            width: 10%;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            font-size: 14px;
+        }
+    }
+    nav {
+        width: 12%;
+        padding-right: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        a {
+            color: rgb(102, 99, 99);
+            text-decoration: none;
+            display: block;
+            &:nth-of-type(2) {
+                background-color: rgb(124, 203, 170);
+                padding: 15px;
+                color: white;
+                border-radius: 5px;
+            }
+        }
+
+        button {
+            width: 70%;
+            background-color: rgb(124, 203, 170);
+            padding: 15px;
+            color: white;
+            border-radius: 5px;
+            border: none;
+        }
+    }
+}
+
+main {
+    width: 100%;
+    margin-top: 75px;
+    section {
+        width: 99%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        .img {
+            height: 300px;
+            width: 32%;
+            background-color: rgb(255, 255, 255);
+            box-shadow: 0px -1px 17px 5px #e6e6e588;
+            margin-bottom: 35px;
+            border-radius: 5px;
+            padding-bottom: 10px;
+            a {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin: 20px auto;
+                text-decoration: none;
+                color: rgb(78, 76, 76);
+                .image {
+                    height: 80%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    img {
+                        width: 80%;
+                        margin: 0 auto;
+                    }
+                }
+                .info {
+                    height: 20%;
+                    width: 90%;
+                    display: flex;
+                    justify-content: space-between;
+                    font-weight: 600;
+                    .good {
+                        display: flex;
+                        align-items: center;
+                        color: rgb(240, 87, 87);
+                        svg {
+                            fill: rgb(240, 87, 87);
+                            width: 20px;
+                            height: 20px;
+                            margin-right: 5px;
+                        }
+                    }
+                }
+            }
+        }
+        &::after {
+            content:"";
+            display: block;
+            width:30%;
+        }
+    }
+}
+
+.modal {
+    position: fixed;
+    z-index: 100;
+    width: 40%;
+    height: 50%;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 60%;
+    height: 60%;
+    margin: 200px auto;
+    padding: 20px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    .position {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        textarea {
+            margin-top: 20px;
+            resize: none;
+            width: 60%;
+            height: 50%;
+        }
+        button {
+            margin-top: 20px;
+            background-color: rgb(124, 203, 170);
+            color: rgb(240, 235, 235);
+            width: 30%;
+            height: 40px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+    }
+}
+.wrapper {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: 10;
+    background-color: rgba(50, 49, 49, 0.37);
+}
