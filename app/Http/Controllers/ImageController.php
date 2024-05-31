@@ -57,4 +57,20 @@ class ImageController extends Controller
         $searches = $query->get();
         return view("index",compact("searches","images"));
     }
+
+    public function sort(Request $request){
+        function order($select)
+        {
+            $query=Image::query();
+            if($select == 'asc'){
+                return $query->orderBy('created_at', 'asc')->get();
+            } elseif($select == 'desc') {
+                return $query->orderBy('created_at', 'desc')->get();
+            } else {
+                return $query->all();
+            }
+        }
+        $images = Image::select("id", "url", "favorite", "comment");
+        return view('index', ['posts' => order($request->sort)], compact('images'));
+    }
 }

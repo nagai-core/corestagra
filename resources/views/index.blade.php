@@ -14,6 +14,16 @@
 <input type="text" name="keyword" value="{{ old("keyword") }}">
 <input type="submit" value="検索">
 </form>
+
+{{-- <h2>並び変え</h2>
+<select name="sort">
+    <option value="asc">昇順</option>
+    <option value="desc">降順</option>
+</select>
+@foreach ($posts as $post)
+    {{ $post->title }}
+@endforeach
+--}}
 @if(!isset($searches))
     <form action="/upload" method="POST" enctype="multipart/form-data">
         @csrf

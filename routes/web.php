@@ -10,6 +10,8 @@ Route::middleware("auth")->group(function() {
 
 Route::post('/upload', [ImageController::class, 'upload'])->name('images.upload');
 Route::get('/search', [ImageController::class, 'search'])->name('images.search');
+Route::get('/sort', [ImageController::class, 'sort'])->name('images.sort');
+
 Route::get('/test', function () {
     return view('welcomeeeeee');
 });
