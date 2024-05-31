@@ -14,6 +14,19 @@
 <input type="text" name="keyword" value="{{ old("keyword") }}">
 <input type="submit" value="検索">
 </form>
+
+{{-- <h2>並び変え</h2>
+<select name="sort">
+    <option value="asc">昇順</option>
+    <option value="desc">降順</option>
+</select>
+@if(isset($record))
+@foreach ($posts as $post)
+    <img src="{{$image->url}}" alt="" width="200px">
+    {{ $post->comment}}
+@endforeach
+@endif --}}
+
 @if(!isset($searches))
     <form action="/upload" method="POST" enctype="multipart/form-data">
         @csrf
@@ -51,6 +64,7 @@
             </label>
         </div>
         <button type="submit">送信</button>
+        @csrf
     </form>
 </body>
 </html>
