@@ -84,16 +84,16 @@ li {
 form {
   position: fixed;
   z-index: 100;
-  width: 60%;
+  width: 40%;
   height: 50%;
   top: 0;
   left: 0;
   right: 0;
   margin: 0 auto;
-  width: 80%;
+  width: 60%;
   height: 60%;
   margin: 200px auto;
-  padding: 30px;
+  padding: 20px;
   background-color: rgb(255, 255, 255);
   border-radius: 10px;
 }
@@ -122,6 +122,11 @@ form .position button {
   font-weight: 600;
 }
 
+#deleteModal {
+  width: 30%;
+  height: 20%;
+}
+
 .wrapper {
   position: fixed;
   width: 100%;
@@ -135,6 +140,18 @@ form .position button {
   position: fixed;
   right: 150px;
   bottom: 80px;
+  width: 40px;
+  height: 40px;
+  fill: rgb(252, 251, 251);
+  background-color: rgb(124, 203, 170);
+  padding: 30px;
+  border-radius: 50% 50%;
+}
+
+.deleteBtn {
+  position: fixed;
+  right: 150px;
+  bottom: 200px;
   width: 40px;
   height: 40px;
   fill: rgb(252, 251, 251);

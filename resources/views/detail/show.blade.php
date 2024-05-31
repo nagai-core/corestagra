@@ -8,6 +8,11 @@
     <title>画面詳細</title>
 </head>
 <body>
+    @if ($userId == $image->user_id)
+    <div class="deleteBtn" onclick="dModal()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="transform: ;msFilter:;"><path d="M5 20a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8h2V6h-4V4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2H3v2h2zM9 4h6v2H9zM8 8h9v12H7V8z"></path><path d="M9 10h2v8H9zm4 0h2v8h-2z"></path></svg>
+    </div>
+    @endif
     <div class="addComment" onclick="add()">
         <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" style="ftransform: ;msFilter:;"><path d="M20 2H4c-1.103 0-2 .897-2 2v18l4-4h14c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2z"></path></svg>
     </div>
@@ -45,10 +50,25 @@
     </div>
     @csrf
 </form>
+@if ($userId == $image->user_id)
+<form action="{{route('detail.delete',$image->id)}}" method="POST" id="deleteModal">
+    <div class="position">
+        <h2>本当に削除しますか？</h2>
+        <input type="hidden" name="image_id" id="image_id" value="{{$image->id}}">
+        <button onclick='return'>削除</button>
+    </div>
+    @csrf
+    @method('DELETE')
+</form>
+@else
+<div id="deleteModal"></div>
+@endif
 <div class="wrapper" id="wrapper" onclick="mclose()"></div>
 <script>
     let modal = document.querySelector("#modal");
     let modal2 = document.querySelector("#wrapper");
+    let deleteModal = document.querySelector("#deleteModal");
+    deleteModal.style.display = "none";
     modal.style.display = "none";
     modal2.style.display = "none";
     function add() {
@@ -57,7 +77,12 @@
     }
     function mclose() {
         modal.style.display = "none";
+        deleteModal.style.display = "none";
         modal2.style.display = "none";
+    }
+    function dModal() {
+        deleteModal.style.display = "block";
+        modal2.style.display = "block";
     }
 </script>
 </body>

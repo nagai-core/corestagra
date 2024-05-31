@@ -36,4 +36,9 @@ class DetailController extends Controller
         return view('detail.show',compact('image','userId'));
     }
 
+    public function delete(Request $request){
+        $image_to_delete = Image::find($request->image_id);
+        $image_to_delete->delete();
+        return redirect('/');
+    }
 }
