@@ -11,6 +11,11 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    public function images(){
+        return $this->belongsToMany(Image::class, 'comments','user_id','images_id')
+        ->withPivot('id','comment','delete_flg');
+    }
+
     /**
      * The attributes that are mass assignable.
      *
@@ -20,6 +25,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'url'
     ];
 
     /**
