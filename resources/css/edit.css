@@ -1,4 +1,4 @@
-form {
+.form {
   position: fixed;
   z-index: 100;
   width: 40%;
@@ -10,11 +10,11 @@ form {
   width: 60%;
   height: 60%;
   margin: 20px auto;
-  padding: 20px;
+  padding: 10px;
   background-color: rgb(255, 255, 255);
   border-radius: 10px;
 }
-form .position {
+.form .position {
   height: 100%;
   width: 100%;
   display: flex;
@@ -22,13 +22,13 @@ form .position {
   align-items: center;
   justify-content: center;
 }
-form .position textarea {
+.form .position textarea {
   margin-top: 20px;
   resize: none;
   width: 60%;
   height: 50%;
 }
-form .position button {
+.form .position button {
   margin-top: 20px;
   background-color: rgb(124, 203, 170);
   color: rgb(240, 235, 235);
@@ -39,10 +39,65 @@ form .position button {
   font-size: 14px;
   font-weight: 600;
 }
-form .position button:nth-of-type(2) {
-  background-color: rgb(229, 78, 78);
+.form .position a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  margin-top: 20px;
+  text-align: center;
+  background-color: rgb(125, 127, 126);
+  color: rgb(240, 235, 235);
+  width: 30%;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 600;
 }
-form .position a {
+
+.delete {
+  position: fixed;
+  z-index: 10;
+  width: 40%;
+  height: 50%;
+  top: 270px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 60%;
+  height: 60%;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+}
+.delete .position {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.delete .position textarea {
+  margin-top: 20px;
+  resize: none;
+  width: 60%;
+  height: 50%;
+}
+.delete .position button {
+  margin-top: 20px;
+  background-color: rgb(245, 74, 65);
+  color: rgb(240, 235, 235);
+  width: 30%;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.delete .position a {
   display: flex;
   align-items: center;
   justify-content: center;

@@ -50,7 +50,7 @@
         <div class="img">
             <a href="/detail/{{$search->id}}">
                 <div class="image">
-                    <img src="{{$image->url}}" alt="">
+                    <img src="{{$search->url}}" alt="">
                 </div>
                 <div class="info">
                     <p class="good">
