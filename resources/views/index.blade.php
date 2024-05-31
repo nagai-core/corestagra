@@ -28,8 +28,6 @@
 @endif --}}
 
 @if(!isset($searches))
-    <form action="/upload" method="POST" enctype="multipart/form-data">
-        @csrf
     @foreach ($images as $image)
     <ul>
         <li>
@@ -52,6 +50,8 @@
     </ul>
     @endforeach
 @endif
+
+
     <form action="{{route('upload')}}" method="POST" enctype="multipart/form-data">
         <div>
             <label for="image">
