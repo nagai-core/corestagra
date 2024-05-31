@@ -25,12 +25,11 @@ Route::post("/complete", [UserController::class, 'store'])->name('signUp.store')
 Route::get('/complete', function(){
     return view('signUp.complete');
 });
-
+Route::get('/detail/{id}', [DetailController::class, 'show'])->name('detail.show');
 Route::middleware("auth")->group(function() {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('/detail/{id}', [DetailController::class, 'show'])->name('detail.show');
     Route::post("/detail/{id}", [DetailController::class, 'store'])->name('detail.add');
     Route::delete("/detail/{id}", [DetailController::class, 'delete'])->name('detail.delete');
     Route::get('/detail/{imageId}/edit/{commentId}', [CommentController::class, 'edit'])->name('commentEdit.edit');

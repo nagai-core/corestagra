@@ -12,11 +12,15 @@ class UserController extends Controller
     }
 
     public function show(Request $request){
-        // $request->validate([
-        //     'icons' => ['required', 'mimes:jpg,jpeg,png,gif,webp']
-        // ]);
+        $request->validate([
+            'name' => ['required'],
+            'email' => ['required'],
+            'password' => ['required']
+            // 'icons' => ['required', 'mimes:jpg,jpeg,png,gif,webp']
+        ]);
+        $dummy = str_repeat("●", strlen($request->password));
         // $icon_path = $request->icon->store('icons', 'public');
-        return view('signUp.confirm',compact('request'));
+        return view('signUp.confirm',compact('request', 'dummy'));
     }
 
     public function store(Request $request){
