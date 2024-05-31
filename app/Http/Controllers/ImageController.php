@@ -10,9 +10,19 @@ use Illuminate\Support\Facades\Redirect;
 class ImageController extends Controller
 {
     public function index() {
+        $id = 0;
+        $user = null;
+        $id = Auth::id();
+        if($id) {
+            $user = Auth::user()->name;
+        }
+        // dd($user);
         $images = Image::select("id", "url", "favorite", "comment")
         ->get();
-        return view('index', compact('images'));
+        $query=Image::query();
+        $query->orderBy('created_at', 'desc');
+        $images = $query->get();
+        return view('index', compact('images', 'id', 'user'));
     }
 
     public function upload(Request $request) {
@@ -20,41 +30,63 @@ class ImageController extends Controller
             'image' => ['required', 'mimes:jpg,jpeg,png,gif,webp']
         ]);
         $new_images = new Image();
-        $userId = Auth::id();
+        $id = Auth::id();
         $path = $request->image->store('images', 'public');
         $new_images->url = $path;
         $new_images->comment = $request->comment;
         $new_images->favorite = 0;
-        $new_images->user_id =$userId;
+        $new_images->user_id =$id;
         $new_images->save();
-        //dd($path);
-        return redirect()->route('index');
-    }
-    // public function search(Request $request){
 
-    //    if (!empty($request->keyword)){
-    //         $images=Image::where("comment","LIKE","%{$request->keyword}%")->get();
-    //        }else{
-    //         $images = Image::select("id", "url", "favorite")
-    //         ->get();
-    //    }
-    //    return view("index",compact("images"));
-    // }
+        $user = Auth::user()->name;
+        $images = Image::select("id", "url", "favorite", "comment")
+        ->get();
+        $query=Image::query();
+        $query->orderBy('created_at', 'desc');
+        $images = $query->get();
+        // return redirect()->route('index');
+        return view('index', compact('images', 'id', 'user'));
+    }
+
     public function search(Request $request){
+        $id = 0;
+        $user = null;
+        $id = Auth::id();
+        if($id) {
+            $user = Auth::user()->name;
+        }
         $keys = explode(" ",$request->keyword);
         $i=0;
         $query=Image::query();
         $images = Image::select("id", "url", "favorite")
         ->get();
+        $query->orderBy('created_at', 'desc');
         foreach($keys as $key){
-          if($i === 0){
+            if($i === 0){
             $query->where("comment","LIKE","%{$key}%");
-          }else{
+            }else{
             $query->orWhere("comment","LIKE","%{$key}%");
-          }
+            }
             $i++;
         }
         $searches = $query->get();
-        return view("index",compact("searches","images"));
+
+        return view("index",compact("searches","images", "id", 'user'));
     }
+
+    // public function sort(Request $request){
+    //     function order($select)
+    //     {
+    //         $query=Image::query();
+    //         if($select == 'asc'){
+    //             return $query->orderBy('created_at', 'asc')->get();
+    //         } elseif($select == 'desc') {
+    //             return $query->orderBy('created_at', 'desc')->get();
+    //         } else {
+    //             return $query->all();
+    //         }
+    //     }
+    //     $images = Image::select("id", "url", "favorite", "comment");
+    //     return view('index', ['posts' => order($request->sort)], compact('images'));
+    // }
 }
