@@ -30,6 +30,7 @@ Route::middleware("auth")->group(function() {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/detail/{id}', [DetailController::class, 'show'])->name('detail.show');
     Route::post("/detail/{id}", [DetailController::class, 'store'])->name('detail.add');
+    Route::delete("/detail/{id}", [DetailController::class, 'delete'])->name('detail.delete');
     Route::get('/detail/{imageId}/edit/{commentId}', [CommentController::class, 'edit'])->name('commentEdit.edit');
     Route::post('/detail/{imageId}/edit/{commentId}', [CommentController::class, 'update'])->name('commentEdit.update');
     Route::delete('/detail/{imageId}/edit/{commentId}', [CommentController::class, 'destroy'])->name('commentEdit.destroy');

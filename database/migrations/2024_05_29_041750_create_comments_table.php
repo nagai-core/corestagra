@@ -17,16 +17,12 @@ return new class extends Migration
             $table->foreignId('user_id')
             ->constrained('users'); // 外部キー 'user_id' を作成します
             $table->foreignId('images_id')
-            ->constrained('images'); // 外部キー 'images_id' を作成します
+            ->constrained('images')
+            ->onDelete('cascade'); // 外部キー 'images_id' を作成します
             $table->integer('delete_flg')
             ->default(0);
             $table->timestamps(); // 'created_at' と 'updated_at' タイムスタンプカラムを作成します
-
-            // 外部キー制約を追加します
-            // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            // $table->foreign('images_id')->references('id')->on('images')->onDelete('cascade');
-        });
-    }
+        });}
 
     /**
      * Reverse the migrations.

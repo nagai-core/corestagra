@@ -11,8 +11,16 @@
 <div>
     <img src="../{{$image->url}}" alt="" width="400px">
     <p>{{$image->comment}}</p>
-
+    @if ($userId == $image->user_id)
+    <form action="{{route('detail.delete',$image->id)}}" method="POST">
+        <input type="hidden" name="image_id" id="image_id" value="{{$image->id}}">
+        <button onclick='return confirm("本当に削除しますか？")'>削除</button>
+        @csrf
+        @method('DELETE')
+    </form>
+    @endif
 </div>
+
 <ul>
     <div>
         @foreach($image->users as $user)
